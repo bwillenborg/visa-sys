@@ -15,6 +15,7 @@ fn link_lib() {
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     let lib = match (&*target_arch, &*target_os) {
         ("x86_64", "macos") => "framework=VISA",
+        ("x86_64", "linux") => "visa",
         ("x86_64", _) => "visa64",
         ("x86", _) => "visa32",
         _ => {
